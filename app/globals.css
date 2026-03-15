@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+/* enable class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "tailwindcss";
+
+/* Light theme (default) */
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+  /* gray-900 */
+  --card: #f9fafb;
+  /* gray-50 */
+  --muted: #6b7280;
+  /* gray-500 */
+  --border: #e5e7eb;
+  /* gray-200 */
+}
+
+/* Dark theme */
+.dark {
+  --bg: #0b0f19;
+  /* dark background */
+  --text: #f9fafb;
+  /* almost white */
+  --card: #111827;
+  /* gray-900 */
+  --muted: #9ca3af;
+  /* gray-400 */
+  --border: #1f2937;
+  /* gray-800 */
+}
+
+/* Apply globally */
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.9s ease-out forwards;
+}
