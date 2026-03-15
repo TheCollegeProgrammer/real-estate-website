@@ -38,7 +38,7 @@ export default function Page() {
 
           <div className="w-full">
             <Image
-              src="/images/ganesh vatika.png"
+              src="/images/ganesh-vatika.png"
               alt="Ganesh Vatika"
               width={800}
               height={600}
