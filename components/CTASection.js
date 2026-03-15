@@ -12,32 +12,36 @@ export default function CTASection() {
 
   return (
     <section
-      className="relative h-[500px] bg-cover bg-center flex items-center"
+      className="relative h-[500px] bg-cover bg-center flex items-center hidden md:block"
       style={{ backgroundImage: "url('/images/buying-house.jpg')" }}
     >
 
-      <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-black/30"></div>
 
-      <div className="relative z-10 bg-orange-500 text-white max-w-md p-10 ml-24 shadow-xl rounded-2xl">
 
-        <h2 className="text-2xl font-semibold mb-4">
-          Buy Your First Property
-        </h2>
+        {/* Content Wrapper */}
 
-        <p className="text-sm mb-6 leading-relaxed">
-          Discover premium residential and commercial properties with
-          modern amenities and prime locations.
-        </p>
+        <div className="relative z-10 max-w-7xl mx-auto h-full px-6 flex items-center">
 
-        <button
-          onClick={goProperties}
-          className="border border-white px-6 py-2 hover:bg-white hover:text-orange-500 transition"
-        >
-          Our Properties
-        </button>
+          <div className="bg-orange-500 text-white p-10 rounded-2xl max-w-lg shadow-xl">
 
-      </div>
+            <h2 className="text-3xl font-bold mb-4">
+              Buy Your First Property
+            </h2>
 
-    </section>
-  )
+            <p className="mb-6 text-lg">
+              Discover premium residential and commercial properties
+              with modern amenities and prime locations.
+            </p>
+
+            <button className="border border-white px-6 py-3 rounded hover:bg-white hover:text-orange-500 transition">
+              Our Properties
+            </button>
+
+          </div>
+
+        </div>
+
+      </section>
+      )
 }

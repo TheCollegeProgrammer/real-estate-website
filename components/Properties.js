@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import { useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronsDown, ChevronsUp } from "lucide-react"
@@ -53,45 +53,71 @@ const properties = [
 ]
 
 export default function Properties() {
+
     const [expanded, setExpanded] = useState(false)
 
+    const sectionRef = useRef(null)
+
+    const toggleExpand = () => {
+
+        if (expanded) {
+
+            sectionRef.current?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            })
+
+        }
+
+        setExpanded(!expanded)
+    }
+
     return (
+
         <section
+            ref={sectionRef}
             id="properties"
             className="py-16 bg-gray-100 dark:bg-gray-900 transition-colors"
         >
+
             <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
                 Our Projects
             </h2>
 
-            {/* Cards Container */}
-            <div
-                className={`max-w-7xl mx-auto px-6 overflow-hidden transition-all duration-700 ${expanded ? "max-h-[2000px]" : "max-h-[430px]"
-                    }`}
-            >
-                <div className="flex flex-wrap justify-center gap-8">
 
-                    {properties.map((property) => (
+            {/* Cards Container */}
+
+            <div className={`max-w-7xl mx-auto px-6 overflow-hidden transition-all duration-700 ease-in-out ${expanded ? "max-h-[2250px]" : "max-h-[850px]"}`}>
+
+                <div className="flex flex-wrap justify-center gap-8 mb-6">
+
+                    {properties.slice(0, expanded ? properties.length : 3).map((property) => (
+
                         <div
                             key={property.id}
                             className={`bg-white dark:bg-gray-800 rounded-xl shadow-md flex flex-col overflow-hidden
-              transition-all duration-500 hover:-translate-y-2 hover:shadow-xl
+                            transition-all ease-in-out duration-500 hover:-translate-y-2 hover:shadow-xl
               
-              w-full
-              sm:w-[45%]
-              ${expanded ? "lg:w-[25%]" : "lg:w-[23%]"}
-              `}
+                            w-full
+                            sm:w-[45%]
+                            ${expanded ? "lg:w-[25%]" : "lg:w-[23%]"}
+                            `}
                         >
+
                             <div className="relative w-full h-48">
+
                                 <Image
                                     src={property.image}
                                     alt={property.title}
                                     fill
                                     className="object-cover"
                                 />
+
                             </div>
 
+
                             <div className="p-5 flex flex-col flex-grow">
+
                                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-1">
                                     {property.title}
                                 </h3>
@@ -104,30 +130,45 @@ export default function Properties() {
                                     {property.description}
                                 </p>
 
+
                                 <Link href={`/projects/${property.link}`}>
-                                    <button className="w-full mt-auto bg-black dark:bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition">
+
+                                    <button className="w-full mt-auto bg-black dark:bg-gray-700 text-white py-2 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-all duration-500 ease-in-out">
                                         View Details
                                     </button>
+
                                 </Link>
+
                             </div>
+
                         </div>
+
                     ))}
 
                 </div>
+
             </div>
 
+
             {/* View More Button */}
-            <div className="text-center mt-10">
+
+            <div className="text-center mt-6">
+
                 <button
-                    onClick={() => setExpanded(!expanded)}
-                    className="inline-flex items-center gap-2 text-lg font-medium text-gray-800 dark:text-gray-200 hover:scale-110 hover:text-black dark:hover:text-white transition duration-300"
+                    onClick={toggleExpand}
+                    className="inline-flex items-center gap-2 text-lg font-medium text-gray-800 dark:text-gray-200 hover:scale-110 hover:text-black dark:hover:text-white transition duration-300 ease-in-out"
                 >
+
                     {expanded ? <ChevronsUp size={20} /> : <ChevronsDown size={20} />}
+
                     {expanded ? "View Less" : "View More"}
+
                     {expanded ? <ChevronsUp size={20} /> : <ChevronsDown size={20} />}
 
                 </button>
+
             </div>
+
         </section>
     )
 }
