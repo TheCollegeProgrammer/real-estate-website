@@ -62,7 +62,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 
           <div>
-            <h3 className="text-3xl md:text-4xl font-bold">10+</h3>
+            <h3 className="text-3xl md:text-4xl font-bold">20+</h3>
             <p className="text-gray-400 mt-2">Years Experience</p>
           </div>
 

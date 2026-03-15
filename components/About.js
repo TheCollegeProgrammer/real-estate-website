@@ -12,7 +12,7 @@ export default function About() {
         </h2>
 
         <p className="text-gray-600 dark:text-gray-400 text-[15px] md:text-lg leading-relaxed">
-          With <strong>10+ years of trust</strong> and <strong>10+ successful projects</strong>,
+          With <strong>20+ years of trust</strong> and <strong>10+ successful projects</strong>,
           we are a dedicated real estate agency helping clients discover premium residential
           and commercial properties. Our focus on <strong>transparent deals, prime locations,
           and professional service</strong> ensures every investment is secure, valuable,
