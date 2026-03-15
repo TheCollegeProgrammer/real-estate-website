@@ -191,7 +191,7 @@ export default function Page() {
 
           <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-start">
 
-            <MapViewer src="/images/Mauli-map.png" />
+            <MapViewer src="/images/mauli-map.png" />
 
             <div className="grid grid-cols-2 gap-5">
 
