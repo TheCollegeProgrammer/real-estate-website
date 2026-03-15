@@ -14,7 +14,7 @@ export default function Home() {
       <Suspense fallback={<div>Loading...</div>}>
         <Properties />
       </Suspense>
-      <CTASection />
+      {/* <CTASection /> */}
       <WhyChooseUs />
       <About />
       <ContactUsSection />
