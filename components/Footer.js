@@ -1,5 +1,6 @@
 "use client"
-import { Facebook, Instagram, Linkedin, Phone, MapPin, Mail } from "lucide-react"
+
+import { Facebook, Instagram, Youtube, Phone, MapPin, Mail } from "lucide-react"
 import Link from "next/link"
 
 export default function Footer() {
@@ -23,7 +24,7 @@ export default function Footer() {
           <div className="flex gap-4">
 
             <a
-              href="#"
+              href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-gray-600 rounded-md hover:bg-gray-700 transition"
@@ -32,7 +33,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="#"
+              href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-gray-600 rounded-md hover:bg-gray-700 transition"
@@ -41,12 +42,12 @@ export default function Footer() {
             </a>
 
             <a
-              href="#"
+              href="https://youtube.com"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-gray-600 rounded-md hover:bg-gray-700 transition"
             >
-              <Linkedin size={18}/>
+              <Youtube size={18}/>
             </a>
 
           </div>
@@ -70,20 +71,20 @@ export default function Footer() {
             </li>
 
             <li>
-              <Link href="/?expand=true#properties" className="hover:text-white transition">
+              <Link href="/#properties" className="hover:text-white transition">
                 Our Projects
               </Link>
             </li>
 
             <li>
-              <Link href="/about" className="hover:text-white transition">
+              <Link href="/about_us" className="hover:text-white transition">
                 About Us
               </Link>
             </li>
 
             <li>
-              <Link href="/contact" className="hover:text-white transition">
-                Contact
+              <Link href="/enquiry_form" className="hover:text-white transition">
+                Enquiry Form
               </Link>
             </li>
 
@@ -103,10 +104,15 @@ export default function Footer() {
 
             <div className="flex items-start gap-3">
               <MapPin size={18}/>
-              <p>
-                First Floor, Anil Apartment,<br/>
+              <a
+                href="https://maps.app.goo.gl/5b4S2xLaawpKxGj96"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-white"
+              >
+                First Floor, Anil Apartment <br/>
                 Deendayal Nagar, Nagpur - 440022
-              </p>
+              </a>
             </div>
 
             <div className="flex items-center gap-3">
@@ -130,7 +136,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-3 mt-6">
 
             <a
-              href="https://wa.me/8080331005"
+              href="https://wa.me/918080331005"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-green-600 px-4 py-2 text-white text-sm rounded hover:bg-green-700 transition"
@@ -139,7 +145,7 @@ export default function Footer() {
             </a>
 
             <a
-              href="https://maps.google.com"
+              href="https://maps.app.goo.gl/5b4S2xLaawpKxGj96"
               target="_blank"
               rel="noopener noreferrer"
               className="border border-gray-500 px-4 py-2 text-sm rounded hover:bg-gray-700 transition"
@@ -165,17 +171,17 @@ export default function Footer() {
 
           <div className="flex gap-6">
 
-            <span className="hover:text-white cursor-pointer">
+            <Link href="/privacy_policy" className="hover:text-white">
               Privacy Policy
-            </span>
+            </Link>
 
-            <span className="hover:text-white cursor-pointer">
+            <Link href="/terms" className="hover:text-white">
               Terms of Service
-            </span>
+            </Link>
 
-            <span className="hover:text-white cursor-pointer">
+            <Link href="/sitemap" className="hover:text-white">
               Sitemap
-            </span>
+            </Link>
 
           </div>
 

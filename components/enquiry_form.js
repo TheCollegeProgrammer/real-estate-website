@@ -2,8 +2,11 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export default function EnquiryForm() {
+
+  const router = useRouter()
 
   const [form, setForm] = useState({
     name: "",
@@ -15,6 +18,29 @@ export default function EnquiryForm() {
 
   const [error, setError] = useState("")
   const [loading, setLoading] = useState(false)
+  const [showPopup, setShowPopup] = useState(false)
+
+  const goProperties = () => {
+
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+
+      const el = document.getElementById("properties")
+
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" })
+      }
+
+    } else {
+
+      router.push("/")
+
+      setTimeout(() => {
+        const el = document.getElementById("properties")
+        if (el) el.scrollIntoView({ behavior: "smooth" })
+      }, 400)
+
+    }
+  }
 
   const handleChange = (e) => {
     setForm((prev) => ({
@@ -44,8 +70,8 @@ export default function EnquiryForm() {
   }
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
 
+    e.preventDefault()
     if (loading) return
 
     if (!form.name.trim()) {
@@ -74,17 +100,19 @@ export default function EnquiryForm() {
 
     try {
 
-      const res = await fetch(process.env.NEXT_PUBLIC_FORM_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(payload)
-      })
+      await fetch(
+        "https://script.google.com/macros/s/AKfycbzrpKAEnNRu16p1T8NSxccaMq-gHU21QkeeCrYc64SdJzIe-hKStWiiCExnHTpOpxcl1g/exec",
+        {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(payload)
+        }
+      )
 
-      if (!res.ok) throw new Error("Request failed")
-
-      alert("Enquiry submitted successfully")
+      setShowPopup(true)
 
       setForm({
         name: "",
@@ -164,7 +192,7 @@ export default function EnquiryForm() {
             />
 
             <input
-              type="text"
+              type="tel"
               name="whatsapp"
               placeholder="WhatsApp Number *"
               value={form.whatsapp}
@@ -223,6 +251,34 @@ export default function EnquiryForm() {
         </div>
 
       </div>
+
+      {/* SUCCESS POPUP */}
+
+      {showPopup && (
+        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-6">
+
+          <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-2xl max-w-md w-full p-8 text-center">
+
+            <h3 className="text-2xl font-semibold mb-4 text-black dark:text-white">
+              Thank You!
+            </h3>
+
+            <p className="text-gray-700 dark:text-gray-300 mb-6">
+              Your enquiry has been submitted successfully.
+              Our team will contact you within <b>12 hours</b>.
+            </p>
+
+            <button
+              onClick={goProperties}
+              className="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition"
+            >
+              View Properties
+            </button>
+
+          </div>
+
+        </div>
+      )}
 
     </section>
   )

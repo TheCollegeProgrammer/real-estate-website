@@ -19,7 +19,7 @@ export default function ContactUsSection() {
         <div className="flex flex-col sm:flex-row justify-center gap-4">
 
           <a
-            href="https://wa.me/8080331005"
+            href="https://wa.me/+918080331005"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition"

@@ -13,18 +13,31 @@ export default function Navbar() {
 
   const router = useRouter()
 
+  // Load theme from localStorage on mount
   useEffect(() => {
     if (typeof window !== "undefined") {
-      const isDark = document.documentElement.classList.contains("dark")
-      setDarkMode(isDark)
+      const savedTheme = localStorage.getItem("theme")
+
+      if (savedTheme === "dark") {
+        document.documentElement.classList.add("dark")
+        setDarkMode(true)
+      } else {
+        document.documentElement.classList.remove("dark")
+        setDarkMode(false)
+      }
     }
   }, [])
 
+  // Update theme + save to localStorage
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark")
-    } else {
-      document.documentElement.classList.remove("dark")
+    if (typeof window !== "undefined") {
+      if (darkMode) {
+        document.documentElement.classList.add("dark")
+        localStorage.setItem("theme", "dark")
+      } else {
+        document.documentElement.classList.remove("dark")
+        localStorage.setItem("theme", "light")
+      }
     }
   }, [darkMode])
 
@@ -59,7 +72,7 @@ export default function Navbar() {
       window.history.replaceState(null, "", "/")
 
     } else {
-      router.push("/?expand=true#properties")
+      router.push("/#properties")
     }
 
     closeMenu()
@@ -78,12 +91,11 @@ export default function Navbar() {
           height={32}
         />
 
-        <span className="font-bold text-lg hidden sm:block">
+        <span className="font-bold text-sm sm:text-lg">
           Success Infra Estate
         </span>
 
       </button>
-
 
       {/* Desktop Menu */}
       <div className="hidden md:flex items-center gap-8">
@@ -114,7 +126,6 @@ export default function Navbar() {
 
       </div>
 
-
       {/* Mobile Buttons */}
       <div className="flex items-center gap-3 md:hidden">
 
@@ -130,7 +141,6 @@ export default function Navbar() {
         </button>
 
       </div>
-
 
       {/* Mobile Menu */}
       {menuOpen && (

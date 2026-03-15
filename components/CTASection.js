@@ -34,7 +34,7 @@ export default function CTASection() {
               with modern amenities and prime locations.
             </p>
 
-            <button className="border border-white px-6 py-3 rounded hover:bg-white hover:text-orange-500 transition">
+            <button className="border border-white px-6 py-3 rounded hover:bg-white hover:text-orange-500 transition" href="/#properties" onClick={goProperties}>
               Our Properties
             </button>
 

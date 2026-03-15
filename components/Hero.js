@@ -9,27 +9,31 @@ export default function Hero() {
     >
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
+      <section className="relative h-screen w-full">
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center text-center text-white px-6 slide-up">
+        <div className="absolute inset-0 bg-black/60"></div>
 
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
-          Find Your Dream Property
-        </h1>
+        {/* Content */}
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6 slide-up">
 
-        <p className="text-sm md:text-lg mb-8 max-w-xl">
-          Premium Residential & Commercial plots in prime locations
-        </p>
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-4">
+            Find Your Dream Property
+          </h1>
 
-        <Link
-          href="/#properties"
-          className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition"
-        >
-          Explore Properties
-        </Link>
+          <p className="text-sm md:text-lg mb-8 max-w-xl">
+            Premium Residential & Commercial plots in prime locations
+          </p>
 
-      </div>
+          <Link
+            href="/#properties"
+            className="bg-yellow-500 text-black px-8 py-3 rounded-lg font-semibold hover:bg-yellow-400 transition"
+          >
+            Explore Properties
+          </Link>
+
+        </div>
+
+      </section>
 
     </section>
   )
