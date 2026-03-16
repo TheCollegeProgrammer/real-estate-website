@@ -4,6 +4,9 @@ import Footer from "@/components/Footer"
 export const metadata = {
   title: "Success Infra Estate",
   description: "Find your dream property with our trusted real estate agency",
+    icons: {
+    icon: "/app/logo.png",
+  },
 }
 
 export default function RootLayout({ children }) {
