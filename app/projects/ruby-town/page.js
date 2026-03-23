@@ -231,10 +231,14 @@ export default function Page() {
       {/* GALLERY */}
       <ImageCarousel
         images={[
-          "/images/ruby-1.png",
-          "/images/ruby-2.png",
-          "/images/ruby-3.png",
-          "/images/ruby-4.png"
+          "/images/ruby-1.jpeg",
+          "/images/ruby-2.jpeg",
+          "/images/ruby-3.jpeg",
+          "/images/ruby-4.jpeg",
+          "/images/ruby-5.jpeg",
+          "/images/ruby-6.jpeg",
+          "/images/ruby-7.jpeg",
+          "/images/ruby-8.png"
         ]}
       />
 

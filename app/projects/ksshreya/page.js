@@ -230,11 +230,14 @@ export default function Page() {
 
 
       <ImageCarousel
+        // images={[
+        //   "/images/ruby-1.jpeg",
+        //   "/images/ruby-2.jpeg",
+        //   "/images/ruby-3.jpeg",
+        //   "/images/ruby-4.jpeg"
+        // ]}
         images={[
-          "/images/ruby-1.png",
-          "/images/ruby-2.png",
-          "/images/ruby-3.png",
-          "/images/ruby-4.png"
+          "/images/soon.png",
         ]}
       />
 
