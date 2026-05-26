@@ -223,15 +223,17 @@ export default function Page() {
 
       {/* GALLERY */}
       <ImageCarousel
-        // images={[
-        //   "/images/ruby-1.jpeg",
-        //   "/images/ruby-2.jpeg",
-        //   "/images/ruby-3.jpeg",
-        //   "/images/ruby-4.jpeg"
-        // ]}
         images={[
-          "/images/soon.png",
+          "/images/mauli-1.png",
+          "/images/mauli-2.png",
+          "/images/mauli-3.png",
+          "/images/mauli-4.png",
+          "/images/mauli-5.png",
+          "/images/mauli-6.png"
         ]}
+        // images={[
+        //   "/images/soon.png",
+        // ]}
       />
 
 
